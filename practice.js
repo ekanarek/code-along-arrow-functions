@@ -8,13 +8,13 @@
 // Your function should be an arrow function (not a function declaration) and be contained
 // within a single line
 
-// REPLACE THIS WITH YOUR CODE
+const isGreaterThanTwenty = (num) => num > 20;
 
 /// /////// PROBLEM 2 //////////
 
 // Create a one line arrow function called seven that will return the number 7
 
-// REPLACE THIS WITH YOUR CODE
+const seven = () => 7;
 
 /// /////// PROBLEM 3 //////////
 
@@ -27,19 +27,19 @@
 //   return num1 + num2;
 // }
 
-// REPLACE THIS WITH YOUR CODE
+const addNums = (num1, num2) => num1 + num2;
 
 // function subtractNums(num1, num2) {
 //   return num1 - num2;
 // }
 
-// REPLACE THIS WITH YOUR CODE
+const subtractNums = (num1, num2) => num1 - num2;
 
 // function double(num) {
 //   return num * 2;
 // }
 
-// REPLACE THIS WITH YOUR CODE
+const double = (num) => num * 2;
 
 /// /////// PROBLEM 4 //////////
 
@@ -51,7 +51,13 @@
 // Your function should be an arrow function (not a function declaration) and it should
 // contain an explicit return statement.
 
-// REPLACE THIS WITH YOUR CODE
+const gemInfo = (gemType, gemSize, gemWeight) => {
+  return {
+    gemType: gemType,
+    gemSize: gemSize,
+    gemWeight: gemWeight,
+  }
+}
 
 /// /////// PROBLEM 5 //////////
 
@@ -60,7 +66,7 @@
 // To see it working, invoke outerFn at the bottom, passing in innerFn as the callback.
 // You should now see "The innerFn is a callback!" in the console.
 
-// Create function here
+const outerFn = (callbackFn) => callbackFn();
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function innerFn() {
@@ -68,7 +74,7 @@ function innerFn() {
 }
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Invoke function here
+outerFn(innerFn);
 
 /// /////// PROBLEM 6 //////////
 
@@ -76,7 +82,7 @@ function innerFn() {
 // The fullName function should return the callback, passing in firstName and lastName as parameters.
 // To test, invoke fullName with your first name, last name and the welcomeMessage function as arguments.
 
-// Create function fullName here
+const fullName = (firstName, lastName, callback) => callback(firstName, lastName);
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function welcomeMessage(first, last) {
@@ -84,7 +90,7 @@ function welcomeMessage(first, last) {
 }
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Invoke fullName below
+fullName('Emily', 'Kanarek', welcomeMessage);
 
 /// /////// PROBLEM 7 //////////
 
@@ -110,7 +116,13 @@ function drinkAlcohol() {
 
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Create function canDrink here
+const canDrink = (age, callback1, callback2) => {
+  if (age < 21) {
+    return callback1();
+  } else {
+    return callback2();
+  }
+}
 
 /// /////// PROBLEM 8 //////////
 
@@ -120,7 +132,11 @@ function drinkAlcohol() {
 // Write a function called math that takes in two numbers, and a callback 'operator' as parameters.
 // This function should return the result of invoking an operator with the appropriate arguments.
 
-//Code here
+const add = (num1, num2) => num1 + num2;
+
+const multiply = (num1, num2) => num1 * num2;
+
+const math = (num1, num2, callback) => callback(num1, num2);
 
 ////////// PROBLEM 9 //////////
 
@@ -133,7 +149,7 @@ const mixedNumbers = [6, 3, 1, 7, 5, 2, 6, 8, 9, 4, 2, 7, 9, 3, 1, 8, 4, 3];
 */
 
 //Code Here
-let evenNumbers; // = mixedNumbers.filter(/* Provide Your Callback Here */)
+let evenNumbers = mixedNumbers.filter((num) => num % 2 === 0);
 
 ////////// PROBLEM 10 //////////
 
@@ -150,7 +166,7 @@ const prices = [15.0, 23.0, 78.0, 34.0, 12.0, 86.0, 12.0, 79.0, 32.0];
 */
 
 //Code Here
-let postTaxPrices; // = prices.map(/* Provide Your Callback Here );
+let postTaxPrices = prices.map((price) => price * 1.07);
 
 ////////// PROBLEM 11 //////////
 
@@ -167,7 +183,7 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 //Code Here
-let totalPopulation; //  = populations.reduce(/* Provide Your Callback Here */)
+let totalPopulation = populations.reduce((runningTotal, curElement) => runningTotal + curElement);
 
 ////////// PROBLEM 12 //////////
 
@@ -209,7 +225,7 @@ const monstersInYourPocket = [
 */
 
 //Code Here
-let myStrongest; // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest = monstersInYourPocket.filter((monster) => monster.CP > 200);
 
 /// /////// PROBLEM 13 //////////
 
@@ -225,4 +241,4 @@ let myStrongest; // = monstersInYourPocket.filter(/* Provide Your Callback Here 
 //
 // Make sure to use arrow functions combined with the map method.
 
-// REPLACE THIS WITH YOUR CODE
+const getAges = (arr) => arr.map((obj) => obj['age']);
